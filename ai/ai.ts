@@ -21,7 +21,7 @@ export const getChatResponse = async (chats: ChatItem[], message: string) => {
         const chatsContent = chats.map(chat => `${chat.source}: ${chat.message}`).join("\n");
         const prompt = `
         You are a bot. You are supposed to generate response for given chat. Use the given chats and context. Only return message content as response.
-        Provide your response in valid markdown. When responding with a numerical data try to use tables to efficiently display data.
+        Provide your response in valid markdown. When responding with a numerical data try to use tables to efficiently display data. Don't answer any questions which are not relevant to this topic, politely decline it under all circumstances.
         ----
         Context: ${dataString}
         ----

@@ -17,11 +17,11 @@ import { Input } from "@/components/ui/input";
 import Markdown from "react-markdown";
 
 // Icons
-import { Bot, Send, User } from "lucide-react";
+import { AlertCircle, Bot, Send, User } from "lucide-react";
 
 // Types
 import { ChatItem } from "@/common/types";
-
+import Link from "next/link";
 
 // Default
 const defaultChats: ChatItem[] = [
@@ -65,7 +65,8 @@ export default function Home() {
         </h4>
 
         <Button size="sm" variant="outline" onClick={handleRestartChat}>
-          Restart Chat
+          <AlertCircle />
+          <span>Restart Chat</span>
         </Button>
       </div>
 
@@ -105,16 +106,25 @@ export default function Home() {
       </div>
 
       {/* Chat Input */}
-      <div className="flex gap-1 sticky bottom-0 bg-white py-4 px-2">
-        <Input
-          placeholder="Enter your message..."
-          onChange={(e) => setMessage(e.target.value)}
-          ref={inputRef}
-        />
+      <div className="sticky bottom-0 bg-white py-4 px-2">
+        <div className="flex gap-1">
+          <Input
+            placeholder="Enter your message..."
+            onChange={(e) => setMessage(e.target.value)}
+            ref={inputRef}
+          />
 
-        <Button className="my-auto" size="sm" onClick={handleChatSubmission}>
-          <Send />
-        </Button>
+          <Button className="my-auto" size="sm" onClick={handleChatSubmission}>
+            <Send />
+          </Button>
+        </div>
+
+        <div className="text-center text-xs pt-1">
+          Created by{" "}
+          <Link href="https://www.linkedin.com/in/ketan-iralepatil/" className="underline">
+            Ketan Iralepatil
+          </Link>
+        </div>
       </div>
     </div>
   );
