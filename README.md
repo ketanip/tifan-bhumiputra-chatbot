@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🤖 Intelligent Chatbot Powered by Generative AI
 
-## Getting Started
+This intelligent chatbot was developed in just **1 day** for the **Bhumiputra team** from **DIEMS, Chhatrapati Sambhajinagar** to compete in the **TIFAN competition**! 🌟 Powered by **Google Gemini AI**, the chatbot provides advanced conversational capabilities within a secure, private environment. 
 
-First, run the development server:
+## 🚀 Project Overview
 
+- **Generative AI-Powered**: Uses Google Gemini to enable intelligent and responsive conversations. 💬
+- **Built with Next.js**: Utilizes server-side functions for optimized performance, crafted as a Next.js application. ⚙️
+- **Privacy-First Design**: User privacy is a priority, and no data is stored, allowing for secure and confidential interactions. 🔒
+- **Tailwind CSS Styling**: Styled with Tailwind CSS, delivering a modern and adaptive user interface. 🎨
+
+## 🖼️ Screenshots
+| Desktop View | Mobile View |
+|--------------|-------------|
+| ![Desktop Screenshot 1](./assets/desktop-chat.png) | ![Mobile Screenshot 1](./assets/mobile-chat.png) |
+| ![Desktop Screenshot 2](./assets/desktop-start.png) | ![Mobile Screenshot 2](./assets/mobile-start.png) |
+
+## 📦 Dev
+
+To start the development server, run:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the project in action! 🎉
