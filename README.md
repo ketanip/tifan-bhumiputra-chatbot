@@ -17,7 +17,15 @@ This intelligent chatbot was developed in just **1 day** for the **Bhumiputra te
 
 ## 📦 Dev
 
-To start the development server, run:
+To start the development server, 
+
+Create a `.env` file and add GEMINI API from Google Gemini Dashboard to `GEMINI_API_KEY`.
+
+```env
+GEMINI_API_KEY="YOUR_GEMINI_API_KEY_HERE"
+```
+
+and run:
 ```bash
 npm run dev
 # or
