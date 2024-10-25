@@ -1,7 +1,7 @@
 "use client";
 
 // React
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // AI (server)
 import { getChatResponse } from "@/ai/ai";
@@ -33,10 +33,21 @@ const defaultChats: ChatItem[] = [
 export default function Home() {
   // Refs
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const chatContainerRef = useRef<HTMLDivElement | null>(null);
 
   // States
   const [message, setMessage] = useState<string>("");
   const [chats, setChats] = useState<ChatItem[]>(defaultChats);
+
+  // Effects
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }
+  }, [chats]);
 
   // Functions
   const handleChatSubmission = async () => {
@@ -63,7 +74,6 @@ export default function Home() {
       strikethrough: true,
       underline: true,
     });
-    console.log(converter.makeHtml(text));
     return converter.makeHtml(text);
   };
 
@@ -110,13 +120,11 @@ export default function Home() {
                   ? "bg-blue-50 text-gray-800 text-right"
                   : "bg-green-50 text-gray-800 text-left "
               }`}
-            >
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: convertMarkdownToHTML(chatItem.message),
-                }}
-              ></div>
-            </div>
+              dangerouslySetInnerHTML={{
+                __html: convertMarkdownToHTML(chatItem.message),
+              }}
+              ref={chats.length - 1 === index ? chatContainerRef : null}
+            ></div>
           </div>
         ))}
       </div>
