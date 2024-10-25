@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 // Markdown
-import Markdown from "react-markdown";
+import showdown from "showdown";
 
 // Icons
 import { AlertCircle, Bot, Send, User } from "lucide-react";
@@ -54,6 +54,19 @@ export default function Home() {
   };
 
   const handleRestartChat = () => setChats(defaultChats);
+
+  const convertMarkdownToHTML = (text: string) => {
+    const converter = new showdown.Converter({
+      tables: true,
+      emoji: true,
+      ghCodeBlocks: true,
+      openLinksInNewWindow: true,
+      strikethrough: true,
+      underline: true,
+    });
+    console.log(converter.makeHtml(text));
+    return converter.makeHtml(text);
+  };
 
   return (
     <div className="max-w-5xl mx-auto md:px-8 min-h-screen flex flex-col gap-4">
@@ -99,7 +112,11 @@ export default function Home() {
                   : "bg-green-50 text-gray-800 text-left "
               }`}
             >
-              <Markdown>{chatItem.message}</Markdown>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: convertMarkdownToHTML(chatItem.message),
+                }}
+              ></div>
             </div>
           </div>
         ))}
@@ -121,7 +138,10 @@ export default function Home() {
 
         <div className="text-center text-xs pt-1">
           Created by{" "}
-          <Link href="https://www.linkedin.com/in/ketan-iralepatil/" className="underline">
+          <Link
+            href="https://www.linkedin.com/in/ketan-iralepatil/"
+            className="underline"
+          >
             Ketan Iralepatil
           </Link>
         </div>
