@@ -19,19 +19,17 @@ export const getChatResponse = async (chats: ChatItem[], message: string) => {
     try {
 
         const chatsContent = chats.map(chat => `${chat.source}: ${chat.message}`).join("\n");
-        const prompt = `
-        You are a bot. You are supposed to generate response for given chat. Use the given chats and context. Only return message content as response.
-        Provide your response in valid markdown ensuring nothing breaks. When responding with a numerical data try to use tables to efficiently display data. Don't answer any questions which are not relevant to this topic, politely decline it under all circumstances.
-        ----
-        Context: ${dataString}
-        ----
-        
-        ----
-        Chats:
-        ${chatsContent}
-        user: ${message}
-        bot:
-        ----`;
+const prompt = `
+You are Bhumi Bot, designed to generate responses based on the provided chat context. Respond only with message content in valid Markdown format, ensuring proper formatting. Use tables to present numerical data efficiently. Politely decline to answer any irrelevant questions.        ----
+Context: ${dataString}
+----
+
+----
+Chats:
+${chatsContent}
+user: ${message}
+bot:
+----`;
 
         const resp = await model.generateContent(prompt);
         return resp.response.text();
